@@ -1,2 +1,3 @@
-# Pharmacy-MS
+# PHARMACY
+
 <img src="./pharmacy.png">
