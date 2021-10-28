@@ -21,6 +21,7 @@
       $(this).parents('.add-on')[method]('active')
     })
 
+    
     // position static twipsies for components page
     if ($(".twipsies a").length) {
       $(window).on('load resize', function () {
@@ -35,6 +36,7 @@
       })
     }
 
+    
     // add tipsies to grid for scaffolding
     if ($('#grid-system').length) {
       $('#grid-system').tooltip({
@@ -43,6 +45,7 @@
       })
     }
 
+    
     // fix sub nav on scroll
     var $win = $(window)
       , $nav = $('.subnav')
@@ -51,6 +54,7 @@
 
     processScroll()
 
+    
     // hack sad times - holdover until rewrite for 2.1
     $nav.on('click', function () {
       if (!isFixed) setTimeout(function () {  $win.scrollTop($win.scrollTop() - 47) }, 10)
@@ -149,6 +153,7 @@
     })
   })
 
+  
 // Modified from the original jsonpi https://github.com/benvinegar/jquery-jsonpi
 $.ajaxTransport('jsonpi', function(opts, originalOptions, jqXHR) {
   var url = opts.url;
