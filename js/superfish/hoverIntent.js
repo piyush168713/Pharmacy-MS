@@ -5,19 +5,23 @@
 			interval: 100,
 			timeout: 0
 		};
+		
 		// override configuration options with user supplied object
 		cfg = $.extend(cfg, g ? { over: f, out: g } : f );
 
+		
 		// instantiate variables
 		// cX, cY = current X and Y position of mouse, updated by mousemove event
 		// pX, pY = previous X and Y position of mouse, set by mouseover and polling interval
 		var cX, cY, pX, pY;
+		
 
 		// A private function for getting mouse position
 		var track = function(ev) {
 			cX = ev.pageX;
 			cY = ev.pageY;
 		};
+		
 
 		// A private function for comparing current and previous mouse position
 		var compare = function(ev,ob) {
@@ -35,6 +39,7 @@
 				ob.hoverIntent_t = setTimeout( function(){compare(ev, ob);} , cfg.interval );
 			}
 		};
+		
 
 		// A private function for delaying the mouseOut function
 		var delay = function(ev,ob) {
@@ -43,6 +48,7 @@
 			return cfg.out.apply(ob,[ev]);
 		};
 
+		
 		// A private function for handling mouse 'hovering'
 		var handleHover = function(e) {
 			// next three lines copied from jQuery.hover, ignore children onMouseOver/onMouseOut
@@ -54,9 +60,11 @@
 			var ev = jQuery.extend({},e);
 			var ob = this;
 
+			
 			// cancel hoverIntent timer if it exists
 			if (ob.hoverIntent_t) { ob.hoverIntent_t = clearTimeout(ob.hoverIntent_t); }
 
+			
 			// else e.type == "onmouseover"
 			if (e.type == "mouseover") {
 				// set "previous" X and Y position based on initial entry point
@@ -66,6 +74,7 @@
 				// start polling interval (self-calling timeout) to compare mouse coordinates over time
 				if (ob.hoverIntent_s != 1) { ob.hoverIntent_t = setTimeout( function(){compare(ev,ob);} , cfg.interval );}
 
+				
 			// else e.type == "onmouseout"
 			} else {
 				// unbind expensive mousemove event
@@ -75,6 +84,7 @@
 			}
 		};
 
+		
 		// bind the function to the two event listeners
 		return this.mouseover(handleHover).mouseout(handleHover);
 	};
