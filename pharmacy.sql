@@ -102,6 +102,7 @@ INSERT INTO `invoice` (`invoice_id`, `customer_name`, `served_by`, `status`, `da
 (18, 'Gtyhd', 'osoro', 'Pending', '2013-12-12 19:20:44'),
 (19, 'Jay-z', 'osoro', 'Pending', '2013-12-12 20:34:51');
 
+
 --
 -- Triggers `invoice`
 --
@@ -114,11 +115,13 @@ END
 //
 DELIMITER ;
 
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `invoice_details`
 --
+
 
 CREATE TABLE IF NOT EXISTS `invoice_details` (
   `id` tinyint(5) NOT NULL AUTO_INCREMENT,
@@ -131,9 +134,11 @@ CREATE TABLE IF NOT EXISTS `invoice_details` (
   KEY `invoices` (`invoice`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
+
 --
 -- Dumping data for table `invoice_details`
 --
+
 
 INSERT INTO `invoice_details` (`id`, `invoice`, `drug`, `cost`, `quantity`) VALUES
 (2, 10, 5, 5, 12),
@@ -162,6 +167,7 @@ INSERT INTO `invoice_details` (`id`, `invoice`, `drug`, `cost`, `quantity`) VALU
 (29, 19, 8, 15, 20),
 (30, 19, 9, 1, 20);
 
+
 -- --------------------------------------------------------
 
 --
@@ -182,6 +188,7 @@ CREATE TABLE IF NOT EXISTS `manager` (
   PRIMARY KEY (`manager_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
+
 --
 -- Dumping data for table `manager`
 --
@@ -190,6 +197,7 @@ INSERT INTO `manager` (`manager_id`, `first_name`, `last_name`, `staff_id`, `pos
 (1, 'Samwel', 'Osoro', 'sam/pharm', '456 Kabu', '0789653417', 'samoso@pharmacy.com', 'samoso', '12345', '2013-12-10 14:09:03');
 
 -- --------------------------------------------------------
+
 
 --
 -- Table structure for table `paymenttypes`
@@ -200,6 +208,7 @@ CREATE TABLE IF NOT EXISTS `paymenttypes` (
   `Name` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
 
 --
 -- Dumping data for table `paymenttypes`
@@ -213,6 +222,7 @@ INSERT INTO `paymenttypes` (`id`, `Name`) VALUES
 (5, '');
 
 -- --------------------------------------------------------
+
 
 --
 -- Table structure for table `pharmacist`
@@ -232,6 +242,7 @@ CREATE TABLE IF NOT EXISTS `pharmacist` (
   PRIMARY KEY (`pharmacist_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
+
 --
 -- Dumping data for table `pharmacist`
 --
@@ -240,6 +251,7 @@ INSERT INTO `pharmacist` (`pharmacist_id`, `first_name`, `last_name`, `staff_id`
 (5, 'Sam', 'Osoro', 'Pharmacy/1', '56 Kabu', '0789653412', 'sam@pharmacysys.com', 'osoro', '1234', '2013-11-24 17:18:51');
 
 -- --------------------------------------------------------
+
 
 --
 -- Table structure for table `prescription`
@@ -259,6 +271,7 @@ CREATE TABLE IF NOT EXISTS `prescription` (
   PRIMARY KEY (`id`,`prescription_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
+
 --
 -- Dumping data for table `prescription`
 --
@@ -267,6 +280,7 @@ INSERT INTO `prescription` (`id`, `prescription_id`, `customer_id`, `customer_na
 (4, 1002, 254678, 'Andre', 0, 'male', '45 eldy', 13, '0987643524', '2013-12-10 12:25:19'),
 (9, 1003, 6765, 'Gtyhd', 45, 'Male', '664466447744 Njy', 18, '887998', '2013-12-12 19:20:44'),
 (10, 1004, 1678, 'Jay-z', 45, 'Male', '123 Brooklyn', 19, '088721313', '2013-12-12 20:34:50');
+
 
 --
 -- Triggers `prescription`
@@ -282,6 +296,7 @@ DELIMITER ;
 
 -- --------------------------------------------------------
 
+
 --
 -- Table structure for table `prescription_details`
 --
@@ -296,6 +311,7 @@ CREATE TABLE IF NOT EXISTS `prescription_details` (
   PRIMARY KEY (`id`),
   KEY `dsfd` (`drug_name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+
 
 --
 -- Dumping data for table `prescription_details`
@@ -330,6 +346,7 @@ INSERT INTO `prescription_details` (`id`, `pres_id`, `drug_name`, `strength`, `d
 
 -- --------------------------------------------------------
 
+
 --
 -- Table structure for table `receipts`
 --
@@ -345,6 +362,7 @@ CREATE TABLE IF NOT EXISTS `receipts` (
   PRIMARY KEY (`reciptNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 --
 -- Dumping data for table `receipts`
 --
@@ -352,6 +370,7 @@ CREATE TABLE IF NOT EXISTS `receipts` (
 INSERT INTO `receipts` (`reciptNo`, `customer_id`, `total`, `payType`, `serialno`, `served_by`, `date`) VALUES
 (0, '', 1500, '', '', 'sam', '0000-00-00 00:00:00'),
 (999, '', 1350, '', '', 'sam', '0000-00-00 00:00:00');
+
 
 --
 -- Triggers `receipts`
@@ -366,6 +385,7 @@ END
 DELIMITER ;
 
 -- --------------------------------------------------------
+
 
 --
 -- Table structure for table `stock`
@@ -385,6 +405,7 @@ CREATE TABLE IF NOT EXISTS `stock` (
   PRIMARY KEY (`stock_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
+
 --
 -- Dumping data for table `stock`
 --
@@ -397,6 +418,7 @@ INSERT INTO `stock` (`stock_id`, `drug_name`, `category`, `description`, `compan
 (9, 'Actal', 'Tablet', 'Stomach Reliev', 'GX', 'Clinix', 1000, 1, 'Available', '2013-12-06');
 
 -- --------------------------------------------------------
+
 
 --
 -- Table structure for table `tempprescri`
@@ -416,6 +438,7 @@ CREATE TABLE IF NOT EXISTS `tempprescri` (
   `quantity` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
 
 --
 -- Constraints for dumped tables
